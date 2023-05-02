@@ -74,7 +74,7 @@ def get_method(user_id,post_id):
                     return jsonify({'err': 'bad request'}),400
                 
                 else:
-                    if(isinstance(post['id'], int) and isinstance(post['msg'],str)): #check for the date is remaining
+                    if(isinstance(post['id'], int) and isinstance(post['msg'],str)):
                         
                         return jsonify({'id': post['id'],'msg': post['msg'], 'timestamp' : post['timestamp'], 'user ID' : post['user ID']}), 200
                     
@@ -153,7 +153,7 @@ def signup():
                     users.append(user_data)
                     return jsonify(user_data),200
     except Exception as e:
-        return jsonify({'err': e}),400
+        return jsonify({'err': 'bad request'}),400
 
 @app.route("/users/<int:id>", methods=["GET"])
 def get_users(id):
@@ -166,7 +166,7 @@ def get_users(id):
                 if user == None:
                     return jsonify({'err': 'not found'}),404 
                 else:
-                    if(isinstance(user['id'], int)): #check for the date is remaining
+                    if(isinstance(user['id'], int)): 
                         return jsonify({'id': user['id'],'username' : user['username'], 'email' : user['email address'], 'timestamp': user['timestamp']}), 200
     except Exception as e:
         return jsonify({'err': 'bad request '}),400
@@ -182,7 +182,7 @@ def get_users_username(username):
                 if user == None:
                     return jsonify({'err': 'not found'}),404 
                 else:
-                    if(isinstance(user['id'], int)): #check for the date is remaining
+                    if(isinstance(user['id'], int)): 
                         return jsonify({'id': user['id'],'username' : user['username'], 'email' : user['email address'], 'timestamp': user['timestamp']}), 200
     except Exception as e:
         return jsonify({'err': 'bad request'}),400
