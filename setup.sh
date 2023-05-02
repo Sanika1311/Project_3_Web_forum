@@ -1,3 +1,3 @@
 #!/bin/sh
-pip install threading2
+pip3 install threading2
 npm install -g newman
